@@ -1,0 +1,50 @@
+---
+layout: page
+title: "All Posts"
+order: 1
+---
+
+{% for post in paginator.posts%}
+<section class="spotlight">
+    <div class="image"><img src="{{ post.image }}" alt=""/></div>
+    <div class="content">
+        <header>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.date | date_to_string}}</p>
+        </header>
+        <p>{{ post.excerpt }} ...</p>
+        <a href="{{ post.url }}">See More</a>
+    </div>
+</section>
+{% endfor %}
+
+<!-- pagination -->
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-arrow-left"></i></a>
+    {% else %}
+    <span>
+        <i class="fas fa-arrow-left"></i>
+    </span>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+    <span class="active nb" >{{ page }}</span>
+    {% elsif page == 1 %}
+    <a class="nb" href="/posts">{{ page }}</a>
+    {% else %}
+    <a class="nb" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-arrow-right"></i></a>
+    {% else %}
+    <span>
+        <i class="fas fa-arrow-right"></i>
+    </span>
+    {% endif %}
+</div>
+{% endif %}

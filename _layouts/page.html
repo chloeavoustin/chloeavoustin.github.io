@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article id="main">
+
+    {% if page.image %}
+    <header style="background-image: url({{ page.image }})">
+        <h2>{{ page.title }}</h2>
+        {% if page.date %}
+            <p>{{ page.date | date_to_string }}</p>
+        {% endif %}
+    </header>
+    {% else %}
+    <header>
+        <h2>{{ page.title }}</h2>
+    </header>
+    {% endif %}
+
+    <section class="wrapper style5">
+        <div class="inner">
+            {{ content }}
+        </div>
+    </section>
+
+</article>

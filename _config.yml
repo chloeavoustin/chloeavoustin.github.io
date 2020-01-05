@@ -1,0 +1,29 @@
+# Configuration File
+plugins:
+  - jekyll-paginate
+
+# Site settings
+title: Chloe Avoustin
+meta_description: Normaly, you can find here a website description ... But it's just obvious you'll find here articles written in my spare time...🚀
+owner: Chloe Avoustin
+first_published: 2020
+email: chloe.avoustin@gmail.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://chloeavoustin.github.io" # the base hostname & protocol for your site
+paginate: 5
+paginate_path: "/posts/page:num/"
+
+# Footer social part
+social:
+  github: https://github.com/chloeavoustin
+  linkedin: https://linkedin.com/in/chloe-avoustin
+
+# Build settings
+markdown: kramdown
+
+# sass:
+style: compressed
+
+# exclude
+exclude:
+  - .idea
