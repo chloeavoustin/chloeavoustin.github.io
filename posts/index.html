@@ -4,6 +4,8 @@ title: "All Posts"
 order: 1
 ---
 
+{% if paginator.total_pages > 1 %}
+
 {% for post in paginator.posts%}
 <section class="spotlight">
     <div class="image"><img src="{{ post.image }}" alt=""/></div>
@@ -18,8 +20,6 @@ order: 1
 </section>
 {% endfor %}
 
-<!-- pagination -->
-{% if paginator.total_pages > 1 %}
 <div class="pagination">
     {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-arrow-left"></i></a>
@@ -47,4 +47,6 @@ order: 1
     </span>
     {% endif %}
 </div>
+{% else %}
+<img src="/images/soon.svg" alt="" style="width:100%">
 {% endif %}
